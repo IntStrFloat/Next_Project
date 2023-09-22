@@ -1,0 +1,10 @@
+.filled svg{
+    fill: var(--primary);
+}
+
+.iseditable {
+    cursor: pointer;
+}
+.svg{
+    margin-right: 5px;
+}

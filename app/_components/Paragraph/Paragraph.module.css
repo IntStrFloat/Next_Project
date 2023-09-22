@@ -1,0 +1,17 @@
+.p{
+    font-weight: 400;
+    margin: 0;
+}
+.little{
+    font-size: 14px;
+    line-height: 24px;
+}
+.default{
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--black);
+}
+.large{
+    font-size: 18px;
+    line-height: 29px;
+}
