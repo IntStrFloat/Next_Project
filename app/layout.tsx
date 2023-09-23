@@ -1,7 +1,9 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter, Noto_Sans_KR } from 'next/font/google';
-
+import { Footer, Header, Sidebar } from './_components';
+import styles from './page.module.css';
+import classNames from 'classnames';
 const noto_Sans_KR = Noto_Sans_KR({
   subsets: ['latin', 'cyrillic'],
   weight: ['300', '400', '500', '700'],
@@ -16,7 +18,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={noto_Sans_KR.className}>{children}</body>
+      <body className={classNames(noto_Sans_KR.className, styles.main)}>
+        <Header className={styles.header} />
+        <Sidebar className={styles.sidebar} />
+        <div className={styles.body}>{children}</div>
+        <Footer className={styles.footer} />
+      </body>
     </html>
   );
 }

@@ -1,11 +1,10 @@
 'use client';
 import Image from 'next/image';
 import styles from './page.module.css';
-import { Htag, Button, Paragraph, Tag } from './_components';
+import { Htag, Button, Paragraph, Tag, Rating } from './_components';
 import Logo from '../public/arrow.svg';
 import { useState } from 'react';
 import { Star } from './_components/StarSvg';
-import { Rating } from './_components/Rating/Rating';
 export default function Home() {
   const clickHandler = () => {};
   const [arrow, setArrow] = useState<'right' | 'down'>('right');

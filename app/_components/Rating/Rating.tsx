@@ -1,3 +1,4 @@
+'use client';
 import { RatingProps } from './Rating.props';
 import cn from 'classnames';
 import React, { useState, useEffect, KeyboardEvent } from 'react';
