@@ -1,8 +1,7 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-export interface RatingProps
+export interface CardProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  isEditable?: boolean;
-  rating: number;
-  setRating: (rating: number) => void;
+  color: 'white' | 'blue';
+  children: React.ReactNode;
 }

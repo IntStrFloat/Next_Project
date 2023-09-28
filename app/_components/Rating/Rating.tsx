@@ -18,6 +18,7 @@ export const Rating: React.FC<RatingProps> = ({
     const newArray = ratingArray.map((element: JSX.Element, index: number) => {
       return (
         <span
+          key={index}
           className={cn(styles.star, {
             [styles.filled]: index < currentRating,
             [styles.iseditable]: isEditable,
@@ -30,7 +31,7 @@ export const Rating: React.FC<RatingProps> = ({
           {' '}
           <Star
             className={styles.svg}
-            color="red"
+            color="#EBEBEB"
             onKeyDown={(e: KeyboardEvent<SVGElement>) => isEditable && handleSpace(index + 1, e)}
           />
         </span>

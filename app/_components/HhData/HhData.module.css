@@ -1,0 +1,71 @@
+.hh{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 30px;
+}
+.count {
+    padding: 20px;
+    text-align: center;
+}
+.salery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 20px;
+    text-align: center;
+    gap: 20px 0;
+}
+.salery > div {
+    border-right: 1px solid var(--gray-light) ;
+}
+.salery > div:last-child {
+    border-right: none ;
+}
+.title {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 27px;
+    margin-bottom: 10px;
+}
+.saleryValue {
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--black);
+    margin-bottom: 12px;
+}
+.startCount{
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 49px;
+    color: var(--primary);
+}
+.saleryRate{
+    justify-content: center ;
+    display: grid;
+    grid-template-columns: repeat(3,20px);
+    gap: 10px;
+}
+@media screen and (max-width:1150px) {
+    .hh{
+        grid-template-columns: 1fr;
+    }
+    
+}
+@media screen and (max-width:765px) {
+    .hh{
+        grid-template-columns: 1fr;
+    }
+    .salery {
+        grid-template-columns: 1fr;
+    }
+    .salery > div {
+        border-bottom: 1px solid var(--gray-light);
+        padding-bottom: 20px;
+        border-right: none ;
+    }
+    .salery > div:last-child {
+        border-right: none ;
+        padding-bottom: 0px;
+        border-bottom: none ;
+    }
+    
+}

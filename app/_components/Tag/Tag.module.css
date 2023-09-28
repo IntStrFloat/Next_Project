@@ -35,6 +35,9 @@
     font-weight: bold;
 }
 .primary{
+    text-align: center;
+    padding-right: 7px;
+    padding-left: 7px;
     color: var(--primary);
     background: none;
     border: 1px solid var(--primary);

@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  console.log('Hello');
   return (
     <html lang="en">
       <body className={classNames(noto_Sans_KR.className, styles.main)}>

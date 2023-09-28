@@ -1,14 +1,11 @@
-'use client';
-import Image from 'next/image';
-import styles from './page.module.css';
 import { Htag, Button, Paragraph, Tag, Rating } from './_components';
-import Logo from '../public/arrow.svg';
-import { useState } from 'react';
-import { Star } from './_components/StarSvg';
-export default function Home() {
-  const clickHandler = () => {};
-  const [arrow, setArrow] = useState<'right' | 'down'>('right');
-  const [rating, setRating] = useState<number>(0);
+import { RatingHandler } from './_components/Rating/RatingHandler';
+import { getMenu } from '@/api/api';
+import { getProduct } from '@/api/product';
+
+export default async function Home() {
+  const product = await getProduct('Photoshop');
+  const menu = await getMenu(0);
   return (
     <main>
       <Htag tag="h1">Привет</Htag>
@@ -16,13 +13,7 @@ export default function Home() {
       <Htag tag="h3">Привет</Htag>
       <Button appearance="primary">Я пидорас</Button>
 
-      <Button
-        appearance="ghost"
-        onClick={() => {
-          setArrow(arrow === 'down' ? 'right' : 'down');
-        }}
-        arrow={arrow}
-      >
+      <Button appearance="ghost" arrow="right">
         Я пидорас
       </Button>
       <Paragraph size="s">Привет, меня зовут Дима</Paragraph>
@@ -34,7 +25,8 @@ export default function Home() {
       <Tag size="m" color="green">
         -10 000 $
       </Tag>
-      <Rating rating={rating} isEditable setRating={setRating} />
+      <RatingHandler rating={2} isEditable />
+      <div>{JSON.stringify(product[0].categories)}</div>
     </main>
   );
 }
