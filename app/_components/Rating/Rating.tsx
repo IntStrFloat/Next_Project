@@ -9,7 +9,7 @@ export const Rating: React.FC<RatingProps> = ({
   rating,
   setRating,
   ...props
-}): JSX.Element => {
+}) => {
   useEffect(() => {
     starHandler(rating);
   }, [rating]);

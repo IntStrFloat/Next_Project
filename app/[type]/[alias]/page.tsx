@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { firstLevelMenu } from '@/app/_helpers/helpers';
 import { TopPageComponent } from './TopPageComponent/TopPageComponent';
 import { getProduct } from '@/api/product';
+import { Sort } from '@/app/_components/Sort/Sort';
 interface ProductPageProps {
   params: { alias: string; type: string };
 }
@@ -23,7 +24,11 @@ const ProductPage: React.FC<ProductPageProps> = async ({ params }) => {
   if (!page) {
     notFound();
   }
-  return <TopPageComponent page={page} firstCategory={firstCategoryItem.id} products={product} />;
+  return (
+    <>
+      <TopPageComponent page={page} firstCategory={firstCategoryItem.id} products={product} />
+    </>
+  );
 };
 
 export default ProductPage;

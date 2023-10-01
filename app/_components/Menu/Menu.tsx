@@ -55,7 +55,7 @@ export const Menu: React.FC<menuProps> = ({ menuItem }): JSX.Element => {
             m.isOpened = true;
           }
           return (
-            <div>
+            <div key={m._id.secondCategory}>
               <div
                 className={styles.secondLevel}
                 onClick={() => openSecondLevel(m._id.secondCategory, m)}
@@ -80,6 +80,7 @@ export const Menu: React.FC<menuProps> = ({ menuItem }): JSX.Element => {
       <>
         {pages.map((page) => (
           <a
+            key={page._id}
             href={`/${route}/${page.alias}`}
             className={cn(styles.thirdLevel, {
               [styles.thirdLevelActive]: `/${route}/${page.alias}` === pathNameTwo,
