@@ -9,3 +9,6 @@ export * from './Footer/Footer';
 export * from './Menu/Menu';
 export * from './Card/Card';
 export * from './Input/Input';
+export * from './Product/Product';
+export * from './Divider/Divider';
+export * from './ReviewForm/ReviewForm';

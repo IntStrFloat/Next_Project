@@ -1,0 +1,85 @@
+'use client';
+import { ReviewFormProps } from './ReviewForm.props';
+import styles from './ReviewForm.module.css';
+import classNames from 'classnames';
+import { ReviewLogo } from '../ReviewLogo';
+import { format } from 'date-fns';
+import { ru } from 'date-fns/locale';
+import { RatingHandler } from '../Rating/RatingHandler';
+import { Button, Input, Rating } from '..';
+import { TextArea } from '../TextArea/TextArea';
+import { ReviewSuccesSvg } from '../ReviewSuccesSvg';
+import { useForm, Controller, SubmitHandler } from 'react-hook-form';
+import { DevTool } from '@hookform/devtools';
+import { IReviewForm } from './ReviewFormProps';
+export const ReviewForm: React.FC<ReviewFormProps> = ({ className, prodId, ...props }) => {
+  const {
+    register,
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IReviewForm>();
+  const onSubmit: SubmitHandler<IReviewForm> = (data) => {
+    console.log(data);
+  };
+  return (
+    <>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className={classNames(styles.reviewForm, className)} {...props}>
+          <Input
+            className={styles.nameInput}
+            placeholder="Имя"
+            {...register('name', { required: { value: true, message: 'Введите имя' } })}
+            error={errors.name}
+          />
+          <Input
+            className={styles.titleInput}
+            placeholder="Имя"
+            {...register('title', { required: { value: true, message: 'Введите заголовок' } })}
+            error={errors.title}
+          />
+
+          <div className={styles.rateBlock}>
+            <span>Оценка:&nbsp;</span>
+            <Controller
+              control={control}
+              name="rating"
+              rules={{ required: { value: true, message: 'Выберите оценку' } }}
+              render={({ field }) => (
+                <Rating
+                  error={errors.rating}
+                  setRating={field.onChange}
+                  className={styles.rating}
+                  isEditable
+                  ref={field.ref}
+                  rating={field.value}
+                />
+              )}
+            />
+          </div>
+          <TextArea
+            className={styles.textArea}
+            {...register('description', {
+              required: { value: true, message: 'Введите описание' },
+            })}
+            placeholder="Текст отзыва"
+            error={errors.description}
+          />
+          <div className={styles.submitBlock}>
+            <Button type="submit" className={styles.submitButton} appearance="primary">
+              Отправить
+            </Button>
+            <span>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
+          </div>
+        </div>
+        <div className={styles.succesBlock}>
+          <div className={styles.succesTitle}>Ваш отзыв отправлен!</div>
+          <div>Спасибо, ваш отзыв будет опубликован после проверки.</div>
+          <div className={styles.close}>
+            <ReviewSuccesSvg />
+          </div>
+        </div>
+      </form>
+    </>
+  );
+};

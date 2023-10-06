@@ -1,13 +1,15 @@
 'use client';
 import { RatingProps } from './Rating.props';
 import cn from 'classnames';
-import React, { useState, useEffect, KeyboardEvent } from 'react';
+import React, { useState, useEffect, KeyboardEvent, forwardRef, ForwardedRef } from 'react';
 import { Star } from '../StarSvg';
 import styles from './Rating.module.css';
 export const Rating: React.FC<RatingProps> = ({
   isEditable = false,
   rating,
   setRating,
+  ref,
+  error,
   ...props
 }) => {
   useEffect(() => {
@@ -18,6 +20,7 @@ export const Rating: React.FC<RatingProps> = ({
     const newArray = ratingArray.map((element: JSX.Element, index: number) => {
       return (
         <span
+          ref={ref}
           key={index}
           className={cn(styles.star, {
             [styles.filled]: index < currentRating,
@@ -52,10 +55,13 @@ export const Rating: React.FC<RatingProps> = ({
     setRating(index);
   };
   return (
-    <div {...props}>
-      {ratingArray.map((elem: JSX.Element, index: number) => {
-        return <React.Fragment key={index}>{elem}</React.Fragment>;
-      })}
+    <div className={styles.errorWrapper}>
+      <div ref={ref} {...props}>
+        {ratingArray.map((elem: JSX.Element, index: number) => {
+          return <React.Fragment key={index}>{elem}</React.Fragment>;
+        })}
+      </div>
+      {error && <span className={styles.erorrMessage}>{error.message}</span>}
     </div>
   );
 };

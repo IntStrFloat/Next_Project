@@ -1,5 +1,5 @@
 'use client';
-import { Card, Htag, Paragraph, Tag } from '@/app/_components';
+import { Card, Htag, Paragraph, Product, Tag } from '@/app/_components';
 import { TopPageComponentProps } from './TopPageComponent.props';
 import styles from './TopPageComponent.module.css';
 import { HhData } from '@/app/_components/HhData/HhData';
@@ -10,6 +10,8 @@ import { useEffect, useReducer, useState } from 'react';
 import { ProductModel } from '@/interfaces/product';
 import { sortResucer } from './sort.resucer';
 import { SortEnum } from '@/app/_components/Sort/Sort.props';
+import { CourseComponent } from '@/app/_components/CourseComponent/CourseComponent';
+import { TextArea } from '@/app/_components/TextArea/TextArea';
 
 export const TopPageComponent: React.FC<TopPageComponentProps> = ({
   page,
@@ -28,16 +30,17 @@ export const TopPageComponent: React.FC<TopPageComponentProps> = ({
       <div className={styles.title}>
         <Htag tag="h1">{page.title}</Htag>
         {products.length && (
-          <Tag color="gray" size="m">
+          <Tag style={{ marginBottom: '-3px' }} color="gray" size="m">
             {products.length}
           </Tag>
         )}
         <Sort sort={sort} setSort={setSort} />
       </div>
       <div>
-        {sortedProducts.map((p) => (
-          <div key={p._id}>{p.title}</div>
+        {sortedProducts.map((p, index) => (
+          <Product key={index} product={p} />
         ))}
+        <TextArea placeholder="Текст" />
       </div>
       <div className={styles.hhTitle}>
         <Htag tag="h2">Вакансии - {page.category}</Htag>

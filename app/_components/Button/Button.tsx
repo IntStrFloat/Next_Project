@@ -2,36 +2,38 @@
 import { ButtonProps } from './Button.props';
 import styles from './Button.module.css';
 import cn from 'classnames';
-import Image from 'next/image';
 import { useState } from 'react';
+import Image from 'next/image';
+import { Arrow } from '../Arrow';
 export const Button: React.FC<ButtonProps> = ({
-  appearance,
+  appearance = 'primary',
   children,
   arrow = 'none',
+  className,
   ...props
-}): JSX.Element => {
-  const [arrowItem, setArrowItem] = useState<'right' | 'down'>('right');
-  function onClick1() {
-    setArrowItem(arrowItem === 'down' ? 'right' : 'down');
-  }
+}) => {
+  // const [arrowItem, setArrowItem] = useState<'right' | 'down' | 'none'>('none');
+  // function onClick1() {
+  //   setArrowItem(arrowItem === 'down' ? 'right' : 'down');
+  // }
   return (
     <button
-      className={cn(styles.button, {
+      className={cn(styles.button, className, {
         [styles.primary]: appearance === 'primary',
         [styles.ghost]: appearance === 'ghost',
       })}
       {...props}
-      onClick={arrow !== 'none' ? onClick1 : () => {}}
+      // onClick={arrow !== 'none' ? onClick1 : () => {}}
     >
       {children}
       {arrow !== 'none' && (
         <span
           className={cn(styles.arrow, {
-            [styles.down]: arrowItem === 'down',
-            [styles.right]: arrowItem === 'right',
+            [styles.down]: arrow === 'down',
+            [styles.right]: arrow === 'right',
           })}
         >
-          <img src="arrow.svg" />
+          <Arrow />
         </span>
       )}
     </button>

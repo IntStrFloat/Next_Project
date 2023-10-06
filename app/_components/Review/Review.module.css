@@ -1,0 +1,72 @@
+.review{
+    padding: 30px;
+    display: grid;
+    margin-bottom: 20px;
+    align-items: center;
+    grid-template-columns:  [start] 30px 1fr auto auto [end];
+    gap: 20px;
+}
+.reviewDescription{
+    grid-column: start / end;
+}
+.reviewName{
+    color: var(--black);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 24px; 
+}
+.open{
+    max-height: auto;
+}
+.closed{
+    overflow: hidden ;
+    max-height: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+.reviewTitle{
+    font-weight: 400;
+    line-height: normal;
+}
+.name{
+    margin-right: 7px;
+}
+@media (max-width:1370px) {
+    .review {
+        grid-template-columns: 30px auto 1fr;
+        grid-template-areas:
+         "logo name name"
+         "date date rate"
+         "description description description";
+    }
+    .reviewRate{
+        grid-area: rate;
+    }
+    .reviewDescription{
+        grid-area: description;
+    }
+    .reviewDate{
+        grid-area: date;
+
+    }
+    .reviewLogo{
+        grid-area: logo;
+    }
+
+    .reviewName{
+        grid-area: name;
+    }
+}
+@media screen and (max-width: 480px) {
+    .review {
+        grid-template-columns: 30px 1fr;
+        grid-template-areas:
+         "logo name"
+         "date date"
+         "rate rate"
+         "description description";
+    }
+    .reviewRate{
+        grid-area: rate;
+    } 
+}

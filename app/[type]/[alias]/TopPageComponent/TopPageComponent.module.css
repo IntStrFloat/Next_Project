@@ -2,8 +2,9 @@
     display: grid;
     grid-template-columns: auto 1fr auto;
     justify-items: flex-start;
-    align-items: baseline;
+    align-items: center;
     gap: 20px ;
+    margin-bottom: 21px;
     
 }
 
@@ -36,4 +37,9 @@
     line-height: 27px;
     margin-top: 0px;
 
+}
+@media  (max-width: 900px) {
+    .title{
+        grid-template-columns: auto 1fr;
+    }
 }

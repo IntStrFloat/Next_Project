@@ -1,0 +1,83 @@
+.reviewForm{
+    padding: 30px;
+    display: grid;
+    gap: 30px;
+    align-items: baseline;
+    grid-template-columns: [start] auto [side] auto [middle] 1fr [end];
+}
+.nameInput{
+    grid-column: start/side;
+}
+.titleInput {
+    grid-column: side/middle;
+}
+.rateBlock{
+
+    text-align: center;
+    justify-self: flex-end;
+}
+.textArea{
+    grid-column: start/end;
+}
+.rating{
+    display: inline-block;
+    margin-left: 20px;
+}
+.submitBlock{
+    grid-column: start/end;
+}
+.submitButton{
+    padding: 11px 36px;
+    color: #FFF;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+    margin-right: 13px;
+}
+.succesBlock    {
+    padding: 20px;
+    background-color: var(--green-light);
+    position: relative;
+    border-radius: 5px;
+}
+.succesTitle {
+    font-weight: bold;
+}
+.close{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+@media (max-width:1100px) {
+    .reviewForm{
+        grid-template-columns: [start] 1fr [side] 1fr [end];
+    }
+    .nameInput{
+        grid-column:start/side;
+    }
+    .titleInput{
+        grid-column:side/end;
+    }
+    .rateBlock{
+        justify-self: flex-start;
+        grid-column:start/side;
+    }
+}
+@media (max-width:900px) {
+    .reviewForm{
+        grid-template-columns: [start] 1fr [side] 1fr [end];
+    }
+    .nameInput{
+        grid-column:start/end;
+    }
+    .titleInput{
+        grid-column:start/end;
+    }
+    .rateBlock{
+        text-wrap: nowrap;
+        justify-self: flex-start;
+        grid-column:start/side;
+    }
+}

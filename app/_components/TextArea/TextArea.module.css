@@ -1,34 +1,29 @@
-.inputWrapper{
-    position: relative;
-}
-.input {
-    position: relative;
+.textArea {
     background-color: var(--white);
     color: var(--black);
     outline: var(--primary);
     border: none;
     padding: 7px 12px;
+    width:98%;
+    display: inline-block;
     border-radius: 5px;
     background: #FFF;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
     font-size: 16px;
     font-weight: 400;
     line-height: 22px;
-}
-.input:focus {
 
-    outline: solid 3px var(--primary);;
 }
-.input::placeholder {
-    font-family: var(--font-family);
+.errorMessage {
+    color: var(--red);
+}
+.textArea:focus{
+    outline: solid 3px var(--primary);
+}
+.error{
+    outline: solid 3px var(--red);
+}
+.textArea::placeholder {
+    font-family: NotoSans;
     color: #A4A4A4;   
 }
-.errorMessage{
-    position: absolute;
-    color: var(--red);
-    left: 1px;
-    bottom: -20px;
-}  
-.error{
-    outline: solid 3px var(--red);;
-} 

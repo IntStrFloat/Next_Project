@@ -4,6 +4,7 @@ import { SidebarProps } from './Sidebar.props';
 import { Logo } from '../Logo';
 import styles from './Sidebar.module.css';
 import cn from 'classnames';
+import { Search } from '../Search/Search';
 
 export const Sidebar: React.FC<SidebarProps> = async ({
   className,
@@ -24,7 +25,7 @@ export const Sidebar: React.FC<SidebarProps> = async ({
   return (
     <div className={cn(className, styles.sidebar)} {...props}>
       <Logo className={styles.logo} color="#7653FC" />
-      <div className={styles.search}>Поиск</div>
+      <Search />
       <Menu menuItem={menuData} />
     </div>
   );

@@ -11,7 +11,6 @@ export const Card: React.FC<CardProps> = ({
     <div
       className={cn(styles.card, className, {
         [styles.blue]: color == 'blue',
-        [styles.white]: color == 'white',
       })}
       {...props}
     >
