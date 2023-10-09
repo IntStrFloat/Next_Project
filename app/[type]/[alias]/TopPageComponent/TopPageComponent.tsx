@@ -12,6 +12,7 @@ import { sortResucer } from './sort.resucer';
 import { SortEnum } from '@/app/_components/Sort/Sort.props';
 import { CourseComponent } from '@/app/_components/CourseComponent/CourseComponent';
 import { TextArea } from '@/app/_components/TextArea/TextArea';
+import { useScrollY } from '@/app/_helpers/hooks/useScrollY';
 
 export const TopPageComponent: React.FC<TopPageComponentProps> = ({
   page,
@@ -22,11 +23,19 @@ export const TopPageComponent: React.FC<TopPageComponentProps> = ({
     products,
     sort: SortEnum.Rating,
   });
+
   const setSort = (sort: SortEnum) => {
     dispatchSort({ type: sort });
   };
+
+  useEffect(() => {
+    dispatchSort({ type: 'reset', initialState: products });
+  }, [products]);
+
+  const y = useScrollY();
   return (
     <div className={styles.wrapper}>
+      {y}
       <div className={styles.title}>
         <Htag tag="h1">{page.title}</Htag>
         {products.length && (
@@ -38,7 +47,14 @@ export const TopPageComponent: React.FC<TopPageComponentProps> = ({
       </div>
       <div>
         {sortedProducts.map((p, index) => (
-          <Product key={index} product={p} />
+          <Product
+            key={p._id}
+            product={p}
+            transition={{
+              layout: { duration: 0.5 },
+            }}
+            layout
+          />
         ))}
         <TextArea placeholder="Текст" />
       </div>

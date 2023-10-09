@@ -1,7 +1,7 @@
 .review{
     padding: 30px;
     display: grid;
-    margin-bottom: 20px;
+    
     align-items: center;
     grid-template-columns:  [start] 30px 1fr auto auto [end];
     gap: 20px;
@@ -15,15 +15,7 @@
     font-weight: 700;
     line-height: 24px; 
 }
-.open{
-    max-height: auto;
-}
-.closed{
-    overflow: hidden ;
-    max-height: 0px;
-    margin: 0px;
-    padding: 0px;
-}
+
 .reviewTitle{
     font-weight: 400;
     line-height: normal;

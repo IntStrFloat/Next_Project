@@ -4,6 +4,7 @@ import { Inter, Noto_Sans_KR } from 'next/font/google';
 import { Footer, Header, Sidebar } from './_components';
 import styles from './page.module.css';
 import classNames from 'classnames';
+import { Up } from './_components/Up/Up';
 const noto_Sans_KR = Noto_Sans_KR({
   subsets: ['latin', 'cyrillic'],
   weight: ['300', '400', '500', '700'],
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Sidebar className={styles.sidebar} />
         <div className={styles.body}>{children}</div>
         <Footer className={styles.footer} />
+        <Up />
       </body>
     </html>
   );

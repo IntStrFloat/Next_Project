@@ -132,9 +132,16 @@
     border-bottom: 1px dashed var(--gray-light);
 }
 .reviews {
+    overflow: hidden;
+    padding: 30px;
     margin-bottom: 20px;
 }
+.reviewButton{
+    cursor: pointer;
+    width: auto;
+}
 .review{
+    overflow: hidden;
     padding: 30px;
     display: grid;
     margin-bottom: 20px;
@@ -151,21 +158,17 @@
     font-weight: 700;
     line-height: 24px; 
 }
-.open{
-    max-height: auto;
-}
-.closed{
-    overflow: hidden ;
-    max-height: 0px;
-    margin: 0px;
-    padding: 0px;
-}
+
 .reviewTitle{
     font-weight: 400;
     line-height: normal;
 }
 .name{
     margin-right: 7px;
+}
+.rateTitle a{
+    color: var(--primary);
+    text-decoration: none;
 }
 @media (max-width:1370px) {
     
