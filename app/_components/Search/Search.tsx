@@ -2,7 +2,7 @@
 import { SearchProps } from './Search.props';
 import styles from './Search.module.css';
 import cn from 'classnames';
-import { Input } from '..';
+import Input from '../Input/Input';
 import { Button } from '../Button/Button';
 import { SearchSvg } from '../SearchSvg';
 import { KeyboardEvent, useState } from 'react';

@@ -5,6 +5,6 @@ import { useState } from 'react';
 export const GetPath = () => {
   const [path, setPath] = useState();
   const pathName = usePathname().split('/');
-  console.log(pathName);
+  console.log(1);
   return pathName[1];
 };

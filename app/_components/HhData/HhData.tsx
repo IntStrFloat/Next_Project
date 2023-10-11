@@ -1,7 +1,7 @@
 import { HhDataProps } from './HhData.props';
 import styles from './HhData.module.css';
 import cn from 'classnames';
-import { Card } from '..';
+import Card from '../Card/Card';
 import { HhStar } from '../HhStar';
 import { priceRu } from '@/app/_helpers/priceRu';
 export const HhData: React.FC<HhDataProps> = ({

@@ -21,12 +21,12 @@ export const Sidebar: React.FC<SidebarProps> = async ({
       e._id.secondCategory.toLowerCase() != 'языки',
   );
 
-  // console.log(menuData);
+  console.log(menuData);
   return (
     <div className={cn(className, styles.sidebar)} {...props}>
       <Logo className={styles.logo} color="#7653FC" />
       <Search />
-      <Menu menuItem={menuData} />
+      <Menu menuItem={menuData1} />
     </div>
   );
 };

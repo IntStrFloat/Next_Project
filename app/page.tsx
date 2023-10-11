@@ -1,5 +1,3 @@
-import { Htag, Button, Paragraph, Tag, Rating, Input } from './_components';
-import { RatingHandler } from './_components/Rating/RatingHandler';
 import { getMenu } from '@/api/api';
 import { getProduct } from '@/api/product';
 

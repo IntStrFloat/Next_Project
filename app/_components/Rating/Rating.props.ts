@@ -5,7 +5,6 @@ export interface RatingProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   isEditable?: boolean;
   rating: number;
-  ref: ForwardedRef<HTMLDivElement>;
   error?: FieldError;
   setRating: (rating: number) => void;
 }

@@ -12,7 +12,7 @@
 }
 .header {
     grid-area: header;
-    display: none;
+    display: none !important;
 }
 .sidebar {
     grid-area: sidebar;
@@ -32,18 +32,18 @@
 }
 @media (max-width: 765px) {
     .main{
-        grid-template-columns:auto 1fr auto ;
+        grid-template-columns:auto 1fr auto !important;
         grid-template-areas: 
         ". header ."
         ". body ."
-        "footer footer footer";
-        gap: 10px;
+        "footer footer footer" !important;
+        gap: 10px !important;
     }
     .sidebar{
         display: none !important;
     }
     .header{
-        display: block;
+        display: grid !important;
     }
     .body{
         padding: 15px;

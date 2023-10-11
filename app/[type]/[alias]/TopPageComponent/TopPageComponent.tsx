@@ -1,17 +1,16 @@
 'use client';
-import { Card, Htag, Paragraph, Product, Tag } from '@/app/_components';
+import { Htag, Paragraph, Tag } from '@/app/_components';
 import { TopPageComponentProps } from './TopPageComponent.props';
 import styles from './TopPageComponent.module.css';
+import Product from '@/app/_components/Product/Product';
 import { HhData } from '@/app/_components/HhData/HhData';
 import { TopLevelCategory } from '@/interfaces/toppage';
 import { Advantages } from '@/app/_components/Advantages/Advantages';
 import { Sort } from '@/app/_components/Sort/Sort';
 import { useEffect, useReducer, useState } from 'react';
-import { ProductModel } from '@/interfaces/product';
 import { sortResucer } from './sort.resucer';
 import { SortEnum } from '@/app/_components/Sort/Sort.props';
-import { CourseComponent } from '@/app/_components/CourseComponent/CourseComponent';
-import { TextArea } from '@/app/_components/TextArea/TextArea';
+import TextArea from '@/app/_components/TextArea/TextArea';
 import { useScrollY } from '@/app/_helpers/hooks/useScrollY';
 
 export const TopPageComponent: React.FC<TopPageComponentProps> = ({
@@ -35,7 +34,6 @@ export const TopPageComponent: React.FC<TopPageComponentProps> = ({
   const y = useScrollY();
   return (
     <div className={styles.wrapper}>
-      {y}
       <div className={styles.title}>
         <Htag tag="h1">{page.title}</Htag>
         {products.length && (

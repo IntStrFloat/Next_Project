@@ -1,7 +1,5 @@
 import { AdvantagesProps } from './Advantages.props';
 import styles from './Advantages.module.css';
-import cn from 'classnames';
-import { Card, Htag, Paragraph } from '..';
 import { LogoAdvantages } from '../LogoAdvantages';
 export const Advantages: React.FC<AdvantagesProps> = ({ advantages }): JSX.Element => {
   return (

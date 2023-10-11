@@ -3,21 +3,21 @@ import { ProductProps } from './Product.props';
 import cn from 'classnames';
 import { ForwardedRef, Fragment, forwardRef, useRef } from 'react';
 import styles from './Product.module.css';
-import { Button, Card, Divider, Paragraph, Rating, ReviewForm, Tag } from '..';
-import { RatingHandler } from '../Rating/RatingHandler';
+import { Button, Divider, Paragraph, ReviewForm, Tag } from '..';
+import RatingHandler from '../Rating/RatingHandler';
 import { priceRu } from '@/app/_helpers/priceRu';
 import Image from 'next/image';
-import { ReviewLogo } from '../ReviewLogo';
+import Card from '../Card/Card';
 import { useState } from 'react';
-import { format } from 'date-fns';
-import { es, ru } from 'date-fns/locale';
 import { Review } from '../Review/Review';
 import { motion } from 'framer-motion';
-export const Product = motion(
+const Product = motion(
   forwardRef(
     ({ className, product, ...props }: ProductProps, ref: ForwardedRef<HTMLDivElement>) => {
       const [isReviweOpened, setIsReviweOpened] = useState<boolean>(false);
+
       const reviewRef = useRef<HTMLDivElement>(null);
+
       const scrollToReview = () => {
         setIsReviweOpened(true);
         reviewRef.current?.scrollIntoView({
@@ -25,6 +25,7 @@ export const Product = motion(
           block: 'start',
         });
       };
+
       const variants = {
         visible: {
           opacity: 1,
@@ -32,13 +33,7 @@ export const Product = motion(
         },
         hidden: { opacity: 0, height: 0, padding: 0, margin: 0, display: 'none' },
       };
-      const variants2 = {
-        visible: {
-          opacity: 1,
-          height: 'auto',
-        },
-        hidden: { opacity: 0, height: 0 },
-      };
+
       return (
         <div ref={ref}>
           <Card color="white" className={styles.product}>
@@ -152,3 +147,5 @@ export const Product = motion(
     },
   ),
 );
+
+export default Product;

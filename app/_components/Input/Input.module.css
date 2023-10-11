@@ -7,6 +7,7 @@
     color: var(--black);
     outline: var(--primary);
     border: none;
+    width: 90%;
     padding: 7px 12px;
     border-radius: 5px;
     background: #FFF;

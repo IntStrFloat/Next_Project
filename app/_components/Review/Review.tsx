@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { ReviewLogo } from '../ReviewLogo';
 import { format } from 'date-fns';
 import { ru } from 'date-fns/locale';
-import { RatingHandler } from '../Rating/RatingHandler';
+import RatingHandler from '../Rating/RatingHandler';
 export const Review: React.FC<ReviewProps> = ({ className, review, ...props }) => {
   const { name, title, createdAt, rating, description } = review;
   return (

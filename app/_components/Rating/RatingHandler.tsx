@@ -1,6 +1,5 @@
 'use client';
 import { useState, DetailedHTMLProps, HTMLAttributes, ForwardedRef, forwardRef } from 'react';
-import { RatingProps } from './Rating.props';
 import { Rating } from '..';
 import { FieldError } from 'react-hook-form';
 
@@ -12,7 +11,7 @@ interface RatingHanglerProps
   setRating?: (rating: number) => void;
 }
 
-export const RatingHandler = forwardRef(
+const RatingHandler = forwardRef(
   (
     { isEditable = false, rating, setRating, ...props }: RatingHanglerProps,
     ref: ForwardedRef<HTMLDivElement>,
@@ -20,7 +19,6 @@ export const RatingHandler = forwardRef(
     const [ratingItem, setRatingItem] = useState<number>(rating);
     return (
       <Rating
-        ref={ref}
         rating={ratingItem}
         setRating={setRating ?? setRatingItem}
         isEditable={isEditable}
@@ -29,3 +27,5 @@ export const RatingHandler = forwardRef(
     );
   },
 );
+
+export default RatingHandler;
